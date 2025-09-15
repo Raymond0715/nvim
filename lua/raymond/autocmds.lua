@@ -1,0 +1,11 @@
+-- Highlight colorcolumn color
+--vim.api.nvim_create_autocmd("FileType", {
+  --pattern = { "python", "c", "cpp", "verilog_systemverilog", "scala", "java", "tex" },
+  --callback = function()
+    --local columns = {}
+    --for i = 81, 200 do
+      --table.insert(columns, tostring(i))
+    --end
+    --vim.wo.colorcolumn = table.concat(columns, ",")
+  --end,
+--})

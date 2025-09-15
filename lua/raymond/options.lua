@@ -1,0 +1,13 @@
+vim.opt.mouse='a'
+vim.opt.cursorline = true         -- 高亮当前行
+vim.opt.splitbelow = true         -- 新窗口在下方打开
+vim.opt.relativenumber = true     -- 显示相对行号
+vim.opt.number = true             -- 显示绝对行号（当前行）
+vim.opt.completeopt = { "menu", "menuone" }
+vim.opt.pumheight = 20
+vim.opt.backup = indent,eol,start
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.foldmethod = "syntax"
+vim.opt.termguicolors = true
+vim.opt.wrap = false

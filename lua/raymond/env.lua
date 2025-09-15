@@ -1,0 +1,2 @@
+-- 设置 nvim 的 server 地址
+-- vim.env.NVIM_LISTEN_ADDRESS = "/tmp/nvim"
