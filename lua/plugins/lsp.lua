@@ -14,15 +14,15 @@ return {
 				vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Show Hover' })
 			end
 
-      lspconfig.clangd.setup({
+			vim.lsp.config("clangd", {
 				on_attach = on_attach,
 				capabilities = capabilities
 			})
-			lspconfig.pyright.setup({
+			vim.lsp.config("pyright", {
 				on_attach = on_attach,
 				capabilities = capabilities
 			})
-      lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
         settings = {
@@ -32,7 +32,7 @@ return {
             },
           },
         },
-      })
+			})
     end,
 	},
 }
