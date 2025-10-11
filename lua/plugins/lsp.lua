@@ -18,10 +18,12 @@ return {
 				on_attach = on_attach,
 				capabilities = capabilities
 			})
+
 			vim.lsp.config("pyright", {
 				on_attach = on_attach,
 				capabilities = capabilities
 			})
+
 			vim.lsp.config("lua_ls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
@@ -32,6 +34,27 @@ return {
             },
           },
         },
+			})
+
+			vim.api.nvim_create_autocmd("FileType", {
+  			pattern = "python",
+			  callback = function()
+			    vim.lsp.enable("pyright")
+			  end,
+			})
+			
+			vim.api.nvim_create_autocmd("FileType", {
+			  pattern = { "c", "cpp", "objc", "objcpp" },
+			  callback = function()
+			    vim.lsp.enable("clangd")
+			  end,
+			})
+			
+			vim.api.nvim_create_autocmd("FileType", {
+			  pattern = "lua",
+			  callback = function()
+			    vim.lsp.enable("lua_ls")
+			  end,
 			})
     end,
 	},
