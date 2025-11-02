@@ -19,14 +19,14 @@ return {
 				fold = { enable = true },
 			})
 			-- 👇 确保文件打开后强制刷新折叠
-			vim.api.nvim_create_autocmd("BufWinEnter", {
-    		  pattern = "*",
-    		  callback = function()
-    		    vim.defer_fn(function()
-    		      vim.cmd("normal! zx")
-    		    end, 100)
-    		  end,
-    		})
+			-- vim.api.nvim_create_autocmd("BufWinEnter", {
+   --  		  pattern = "*",
+   --  		  callback = function()
+   --  		    vim.defer_fn(function()
+   --  		      vim.cmd("normal! zx")
+   --  		    end, 100)
+   --  		  end,
+   --  		})
 		end,
 	}
 }
