@@ -3,7 +3,6 @@ return {
 		'neovim/nvim-lspconfig', opts = {},
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
-      local lspconfig = require("lspconfig")
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 			local on_attach = function(client, bufnr)
 				local opts = { buffer = bufnr }
@@ -27,35 +26,33 @@ return {
 			vim.lsp.config("lua_ls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-          },
-        },
+				settings = {
+        		  Lua = {
+        		    diagnostics = {
+        		      globals = { "vim" },
+        		    },
+        		  },
+        		},
 			})
 
 			vim.api.nvim_create_autocmd("FileType", {
-  			pattern = "python",
-			  callback = function()
-			    vim.lsp.enable("pyright")
-			  end,
+				pattern = "python",
+				callback = function()
+					vim.lsp.enable("pyright")
+				end,
 			})
-			
 			vim.api.nvim_create_autocmd("FileType", {
-			  pattern = { "c", "cpp", "objc", "objcpp" },
-			  callback = function()
-			    vim.lsp.enable("clangd")
-			  end,
+				pattern = { "c", "cpp", "objc", "objcpp", "cuda" },
+				callback = function()
+					vim.lsp.enable("clangd")
+				end,
 			})
-			
 			vim.api.nvim_create_autocmd("FileType", {
-			  pattern = "lua",
-			  callback = function()
-			    vim.lsp.enable("lua_ls")
-			  end,
+				pattern = "lua",
+				callback = function()
+					vim.lsp.enable("lua_ls")
+				end,
 			})
-    end,
+		end,
 	},
 }
